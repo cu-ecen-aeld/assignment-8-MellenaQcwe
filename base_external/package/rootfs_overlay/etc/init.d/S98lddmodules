@@ -1,0 +1,25 @@
+#!/bin/sh
+
+case "$1" in
+    start) 
+        cd /lib/modules/6.1.44/extra/
+        echo "Loading ldd scull module"
+        scull_load
+        echo "Loading ldd msic module faulty"
+        module_load faulty
+        echo "Loading ldd msic module hello"
+        modprobe hello
+        ;;
+    stop) 
+        cd /lib/modules/6.1.44/extra/
+        echo "Unloading ldd scull module"
+        scull_unload
+        echo "Unloading ldd msic module faulty"
+        module_unload faulty
+        echo "Unloading ldd msic module hello"
+        rmmod hello
+        ;;
+    *)
+        echo "Usage: $0 {start|stop}"
+        exit 1
+esac
