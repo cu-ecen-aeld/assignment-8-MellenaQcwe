@@ -1,0 +1,6 @@
+
+config BR2_PACKAGE_AESD_CHAR_DRIVER
+	bool "aesd_char_driver"
+	depends on BR2_LINUX_KERNEL
+	help
+	  Includes the aesd linux device driver in the kernel image.
